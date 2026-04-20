@@ -1,0 +1,107 @@
+export default function VCIOAdvisoryWebsite() {
+  const services = [
+    "Fractional CIO Advisory",
+    "IT Strategy & Roadmap Development",
+    "Technology Stack Modernization & AI Implementation",
+    "Cybersecurity Risk Assessment & Remediation",
+    "Vendor Evaluation & Management",
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#071426] text-white">
+      <main>
+
+        {/* BIO SECTION */}
+        <section className="mx-auto max-w-6xl px-6 py-20">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <img
+                src="/profile.jpg"
+                alt="Founder"
+                className="w-full max-w-sm rounded-2xl border border-[#1f86d4]/40 shadow-xl"
+              />
+            </div>
+
+            <div>
+              <div className="text-sm uppercase tracking-[0.2em] text-[#1f86d4]">
+                Founder & Advisor
+              </div>
+              <h1 className="mt-4 text-4xl font-bold md:text-5xl">
+                Strategic IT leadership built around real business experience.
+              </h1>
+              <p className="mt-6 text-lg leading-8 text-slate-300">
+                vCIO Advisory is built around hands-on experience helping businesses make better technology decisions. I work directly with business owners and leadership teams to bring clarity, structure, and direction to IT.
+              </p>
+              <p className="mt-4 text-lg leading-8 text-slate-300">
+                My focus is simple: help you modernize your technology, reduce risk, and use IT as a driver for growth — not just a support function.
+              </p>
+              <div className="mt-8">
+                <a
+                  href="mailto:Doug@vCIOAdvisor.com"
+                  className="rounded-xl bg-[#1f86d4] px-6 py-3 text-sm font-semibold text-white hover:bg-[#176fb1]"
+                >
+                  Schedule a Conversation
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* HERO / VALUE PROP */}
+        <section className="mx-auto max-w-6xl border-t border-[#f39a21]/40 px-6 py-20">
+          <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+            Helping SMBs modernize technology to drive business growth.
+          </h2>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            vCIO Advisory is a consulting firm focused on helping small and mid-sized businesses modernize their technology to support business development and long-term growth. We provide strategic guidance, practical solutions, and executive-level insight to turn IT from a cost center into a growth driver.
+          </p>
+        </section>
+
+        {/* SERVICES */}
+        <section className="mx-auto max-w-6xl border-t border-[#f39a21]/40 px-6 py-20">
+          <h2 className="text-3xl font-bold tracking-tight">What We Do</h2>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-300">
+            Most SMBs don’t need a full-time CIO — they need the right strategy, the right systems, and a trusted advisor who can align technology with business growth, efficiency, and scalability.
+          </p>
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {services.map((service) => (
+              <div key={service} className="rounded-2xl border border-[#1f86d4]/35 bg-[#0b1b33] p-6 shadow-lg">
+                <h3 className="text-xl font-semibold text-[#1f86d4]">{service}</h3>
+                <p className="mt-2 text-slate-300">
+                  Strategic support built to help leadership move from reactive IT decisions to a stronger technology foundation.
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* WHY */}
+        <section className="mx-auto max-w-6xl border-t border-[#f39a21]/40 px-6 py-20">
+          <h2 className="text-3xl font-bold tracking-tight">Why vCIO Advisory</h2>
+          <div className="mt-8 max-w-4xl space-y-6 text-lg leading-8 text-slate-300">
+            <p>
+              Whether your business is scaling, modernizing systems, or trying to use technology more effectively to support growth, vCIO Advisory helps build a strong, forward-looking IT foundation.
+            </p>
+            <p>
+              We work with leadership teams that are tired of reactive IT and want clear priorities, smarter investments, and a structured approach to modernizing their technology environment.
+            </p>
+          </div>
+        </section>
+
+        {/* CONTACT */}
+        <section className="mx-auto max-w-6xl border-t border-[#f39a21]/40 px-6 py-20">
+          <h2 className="text-3xl font-bold tracking-tight">Get In Touch</h2>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+            If you want technology to become a competitive advantage instead of a constant source of reaction, let’s talk.
+          </p>
+          <div className="mt-6 space-y-2 text-base text-slate-300">
+            <p>Doug@vCIOAdvisor.com</p>
+            <p>www.vcioadvisor.com</p>
+          </div>
+
+          <div className="mt-16 h-1.5 w-full bg-[#f39a21] opacity-95" />
+        </section>
+      </main>
+    </div>
+  );
+}
