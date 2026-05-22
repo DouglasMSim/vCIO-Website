@@ -1,142 +1,352 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>vCIO Advisory</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #071426;
-      color: white;
-    }
+import React from "react";
+import {
+  ArrowRight,
+  BarChart3,
+  Briefcase,
+  CalendarDays,
+  CheckCircle,
+  FileText,
+  HardHat,
+  MapPinned,
+  Rocket,
+  Scale,
+  ShieldCheck,
+  ShoppingBag,
+  Users,
+  Workflow,
+  BrainCircuit,
+  MonitorCheck,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+// Replace these with your actual asset paths after uploading to your site/project.
+// Example for Next.js: place files in /public/images/ and use "/images/vcio-logo.png".
+const LOGO_SRC = "/images/vcio-logo.png";
+const PROFILE_SRC = "/images/doug-profile.jpg";
 
-    .section {
-      border-top: 2px solid #f39a21;
-      padding-top: 40px;
-      margin-top: 40px;
-    }
+export default function VCIOAdvisorHomepage() {
+  return (
+    <main className="min-h-screen bg-white text-slate-900">
+      <Header />
+      <Hero />
+      <Services />
+      <Process />
+      <WhoWeHelp />
+      <Insights />
+      <AboutCTA />
+      <Footer />
+    </main>
+  );
+}
 
-    h1 {
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
+function Header() {
+  return (
+    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <a href="#home" className="flex items-center gap-3">
+          <img
+            src={LOGO_SRC}
+            alt="vCIO Advisor logo"
+            className="h-16 w-auto object-contain"
+          />
+        </a>
 
-    h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
+        <nav className="hidden items-center gap-8 text-sm font-semibold text-slate-800 lg:flex">
+          <a className="border-b-2 border-[#0b74c9] pb-1 text-[#0b4f9f]" href="#home">
+            Home
+          </a>
+          <a className="hover:text-[#0b74c9]" href="#services">Services</a>
+          <a className="hover:text-[#0b74c9]" href="#who-we-help">Who We Help</a>
+          <a className="hover:text-[#0b74c9]" href="#insights">Insights</a>
+          <a className="hover:text-[#0b74c9]" href="#about">About</a>
+          <a className="hover:text-[#0b74c9]" href="#contact">Contact</a>
+        </nav>
 
-    p {
-      color: #cbd5e1;
-      line-height: 1.6;
-    }
+        <Button className="rounded-lg bg-[#ff8c1a] px-6 py-5 font-bold text-white shadow-sm hover:bg-[#e87800]">
+          Free Assessment
+        </Button>
+      </div>
+    </header>
+  );
+}
 
-    .btn {
-      display: inline-block;
-      background: #1f86d4;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      margin-top: 20px;
-    }
+function Hero() {
+  return (
+    <section id="home" className="relative overflow-hidden bg-white">
+      <div className="absolute right-0 top-20 h-96 w-[55%] bg-gradient-to-l from-[#eaf5ff] to-transparent" />
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:py-20">
+        <div className="relative z-10">
+          <h1 className="max-w-xl text-5xl font-extrabold leading-tight tracking-tight text-[#06285c] md:text-6xl">
+            Your Business Has Growth Goals.
+            <span className="block text-[#0b74c9]">Your Technology Needs a Plan<span className="text-[#ff8c1a]">.</span></span>
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+            vCIO Advisor partners with small and mid-sized businesses to turn technology into a strategic advantage, streamlining operations, improving efficiency, adopting AI, and accelerating sustainable growth.
+          </p>
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <Button className="rounded-lg bg-[#0b74c9] px-7 py-6 text-base font-bold text-white hover:bg-[#075ca1]">
+              Schedule a Free Assessment <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button variant="outline" className="rounded-lg border-[#0b74c9] px-7 py-6 text-base font-bold text-[#0b4f9f] hover:bg-[#eaf5ff]">
+              View Services <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </div>
+        </div>
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+        <div className="relative z-10">
+          <div className="absolute -left-6 top-12 h-28 w-28 rounded-3xl border-2 border-[#ff8c1a] opacity-70" />
+          <div className="absolute -right-4 bottom-8 h-36 w-36 rounded-3xl border-2 border-[#0b74c9] opacity-70" />
+          <Card className="overflow-hidden rounded-[2rem] border-0 bg-gradient-to-br from-[#eaf5ff] to-white shadow-xl">
+            <CardContent className="grid min-h-[390px] items-center gap-8 p-8 lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="space-y-5">
+                <div className="inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-bold text-[#0b4f9f] shadow-sm">
+                  Fractional CIO Strategy
+                </div>
+                <h2 className="text-3xl font-extrabold text-[#06285c]">Make better technology decisions with confidence.</h2>
+                <p className="leading-7 text-slate-600">
+                  We help you identify what to fix first, what to automate, what software to use, and how to align technology investments to business outcomes.
+                </p>
+                <div className="grid gap-3 text-sm font-semibold text-slate-700">
+                  <div className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-[#0b74c9]" /> CRM, AI, automation, security, and operations</div>
+                  <div className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-[#0b74c9]" /> Practical roadmaps, not confusing tech talk</div>
+                  <div className="flex items-center gap-2"><CheckCircle className="h-5 w-5 text-[#0b74c9]" /> Built for small business owners</div>
+                </div>
+              </div>
 
-    .card {
-      background: #0b1b33;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #1f86d4;
-    }
+              <div className="rounded-[1.75rem] bg-white p-6 shadow-lg">
+                <div className="mb-5 grid grid-cols-2 gap-4">
+                  {[BarChart3, BrainCircuit, MonitorCheck, ShieldCheck].map((Icon, index) => (
+                    <div key={index} className="flex h-20 items-center justify-center rounded-2xl border border-slate-100 bg-[#f7fbff]">
+                      <Icon className="h-9 w-9 text-[#0b74c9]" />
+                    </div>
+                  ))}
+                </div>
+                <div className="rounded-2xl bg-[#06285c] p-5 text-white">
+                  <div className="text-sm font-bold text-[#ffb15c]">Technology Roadmap</div>
+                  <div className="mt-2 text-2xl font-extrabold">From scattered tools to a clear plan.</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+}
 
-    .bio {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 40px;
-      align-items: center;
-    }
+const serviceCards = [
+  { icon: MapPinned, title: "Technology Roadmaps", text: "Align your technology with your business goals and create a clear plan for the future." },
+  { icon: Users, title: "CRM & Lead Management", text: "Optimize your sales process and customer relationships to convert more leads and grow revenue." },
+  { icon: BrainCircuit, title: "AI & Automation", text: "Leverage AI and automation to eliminate busywork, reduce costs, and scale with confidence." },
+  { icon: Workflow, title: "Operations Improvement", text: "Streamline workflows, integrate systems, and improve efficiency across your organization." },
+  { icon: ShieldCheck, title: "Security & Compliance", text: "Protect your business, data, and reputation with practical security and compliance guidance." },
+  { icon: MonitorCheck, title: "Software Selection", text: "Choose the right tools for your business with expert guidance and unbiased recommendations." },
+];
 
-    .bio img {
-      width: 100%;
-      border-radius: 12px;
-    }
+function Services() {
+  return (
+    <section id="services" className="mx-auto max-w-7xl px-6 py-20">
+      <SectionLabel label="Our Services" />
+      <h2 className="text-center text-4xl font-extrabold tracking-tight text-[#06285c]">Strategic Technology. Measurable Results.</h2>
+      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {serviceCards.map(({ icon: Icon, title, text }) => (
+          <Card key={title} className="rounded-2xl border border-slate-100 bg-white shadow-md transition hover:-translate-y-1 hover:shadow-xl">
+            <CardContent className="flex gap-5 p-7">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border-2 border-[#0b74c9] text-[#0b74c9]">
+                <Icon className="h-8 w-8" />
+              </div>
+              <div>
+                <h3 className="text-xl font-extrabold text-[#0b4f9f]">{title}</h3>
+                <p className="mt-2 leading-7 text-slate-600">{text}</p>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
+}
 
-    @media (max-width: 768px) {
-      .bio {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
+function Process() {
+  const steps = [
+    { icon: Users, number: "1", title: "Understand", text: "We learn your business, goals, challenges, and current technology stack." },
+    { icon: MapPinned, number: "2", title: "Roadmap", text: "We build a strategic technology roadmap with clear priorities and measurable outcomes." },
+    { icon: Rocket, number: "3", title: "Execute", text: "We guide and support execution, optimize performance, and adapt as you grow." },
+  ];
 
-<body>
+  return (
+    <section className="mx-auto max-w-7xl px-6 pb-20">
+      <div className="rounded-[2rem] bg-[#f1f8ff] px-8 py-12">
+        <SectionLabel label="How It Works" />
+        <h2 className="text-center text-4xl font-extrabold tracking-tight text-[#06285c]">A Simple, Proven Process.</h2>
+        <div className="mt-12 grid gap-8 lg:grid-cols-3">
+          {steps.map(({ icon: Icon, number, title, text }) => (
+            <div key={title} className="text-center">
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-white text-[#0b74c9] shadow-md">
+                <Icon className="h-9 w-9" />
+              </div>
+              <div className="mt-6 flex items-center justify-center gap-2">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#ff8c1a] text-sm font-extrabold text-white">{number}</span>
+                <h3 className="text-xl font-extrabold text-[#0b4f9f]">{title}</h3>
+              </div>
+              <p className="mx-auto mt-3 max-w-xs leading-7 text-slate-600">{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
-<div class="container">
+function WhoWeHelp() {
+  const industries = [
+    { icon: Scale, label: "Law Firms" },
+    { icon: Briefcase, label: "Professional Services" },
+    { icon: HardHat, label: "Contractors & Trades" },
+    { icon: ShoppingBag, label: "Local Service Businesses" },
+    { icon: BarChart3, label: "Growing Companies" },
+  ];
 
-  <!-- BIO -->
-  <div class="bio">
-    <img src="profile.jpg" alt="Doug">
+  return (
+    <section id="who-we-help" className="mx-auto max-w-7xl px-6 pb-20">
+      <SectionLabel label="Who We Help" />
+      <h2 className="text-center text-4xl font-extrabold tracking-tight text-[#06285c]">Trusted by Businesses Like Yours.</h2>
+      <div className="mt-10 grid gap-4 md:grid-cols-5">
+        {industries.map(({ icon: Icon, label }) => (
+          <div key={label} className="flex flex-col items-center justify-center border-r border-slate-200 px-4 py-4 text-center last:border-r-0">
+            <Icon className="h-11 w-11 text-[#0b74c9]" />
+            <div className="mt-3 text-base font-extrabold leading-tight text-[#0b4f9f]">{label}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
 
+function Insights() {
+  const posts = [
+    { tag: "Strategy", title: "5 Signs You Need a vCIO", text: "How to know when it is time to bring strategic technology leadership into your business." },
+    { tag: "AI & Automation", title: "AI for Small Business: Where to Start", text: "Practical ways to use AI and automation to save time, reduce costs, and drive real growth." },
+    { tag: "Operations", title: "Streamline Today. Scale Tomorrow", text: "Why operational efficiency is the foundation of sustainable growth." },
+  ];
+
+  return (
+    <section id="insights" className="mx-auto max-w-7xl px-6 pb-20">
+      <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <h2 className="text-3xl font-extrabold tracking-tight text-[#06285c]">Ideas & Insights to Help You Grow.</h2>
+        <a href="#insights" className="text-sm font-extrabold text-[#0b74c9]">View All Insights <ArrowRight className="inline h-4 w-4" /></a>
+      </div>
+      <div className="mt-8 grid gap-6 md:grid-cols-3">
+        {posts.map((post, index) => (
+          <Card key={post.title} className="overflow-hidden rounded-2xl border border-slate-100 shadow-md">
+            <CardContent className="grid gap-0 p-0 sm:grid-cols-[0.8fr_1.2fr] md:grid-cols-1 lg:grid-cols-[0.8fr_1.2fr]">
+              <div className="min-h-44 bg-gradient-to-br from-[#0b74c9] to-[#06285c] p-5 text-white">
+                {index === 0 && <Users className="h-12 w-12 opacity-90" />}
+                {index === 1 && <BrainCircuit className="h-12 w-12 opacity-90" />}
+                {index === 2 && <BarChart3 className="h-12 w-12 opacity-90" />}
+              </div>
+              <div className="p-5">
+                <div className="text-xs font-extrabold uppercase tracking-wide text-[#ff8c1a]">{post.tag}</div>
+                <h3 className="mt-2 text-lg font-extrabold leading-snug text-[#06285c]">{post.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{post.text}</p>
+                <a href="#insights" className="mt-4 inline-flex items-center text-sm font-extrabold text-[#0b74c9]">Read More <ArrowRight className="ml-1 h-4 w-4" /></a>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function AboutCTA() {
+  return (
+    <section id="about" className="bg-gradient-to-r from-[#06285c] via-[#064e9f] to-[#06285c] text-white">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[0.55fr_1fr_0.65fr] lg:items-center">
+        <div className="relative">
+          <div className="absolute -left-4 -top-4 h-48 w-48 rounded-[2rem] border-2 border-[#00a2ff] opacity-60" />
+          <img
+            src={PROFILE_SRC}
+            alt="Doug Sim, founder of vCIO Advisor"
+            className="relative z-10 h-64 w-64 rounded-[2rem] object-cover object-top shadow-2xl"
+          />
+          <div className="absolute -bottom-3 left-0 z-20 h-1 w-64 bg-[#ff8c1a]" />
+        </div>
+
+        <div>
+          <div className="flex items-center justify-start gap-3 text-sm font-extrabold uppercase tracking-[0.18em] text-white/85">
+            <span className="h-0.5 w-8 bg-[#ff8c1a]" /> About vCIO Advisor <span className="h-0.5 w-8 bg-[#ff8c1a]" />
+          </div>
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight md:text-4xl">Hi, I’m your strategic technology partner.</h2>
+          <p className="mt-5 max-w-2xl leading-8 text-blue-50">
+            I’m passionate about helping small and mid-sized businesses use technology to support their goals. With 20+ years of experience in IT leadership, strategy, and operations, I act as your fractional vCIO, bringing enterprise-level expertise without the full-time overhead.
+          </p>
+          <div className="mt-6 font-semibold text-blue-100">— Founder, vCIO Advisor</div>
+        </div>
+
+        <div id="contact" className="border-l border-white/25 pl-8">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full border-2 border-[#ff8c1a] text-white">
+            <CalendarDays className="h-8 w-8" />
+          </div>
+          <h3 className="mt-5 text-3xl font-extrabold">Ready to Take the Next Step?</h3>
+          <p className="mt-4 leading-7 text-blue-50">
+            Start with a free assessment and discover how the right technology plan can move your business forward.
+          </p>
+          <Button className="mt-7 rounded-lg bg-[#ff8c1a] px-7 py-6 text-base font-extrabold text-white hover:bg-[#e87800]">
+            Schedule a Free Assessment <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="bg-[#041f49] text-white">
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 md:grid-cols-[1fr_1fr_1.2fr_1fr]">
+        <div>
+          <img src={LOGO_SRC} alt="vCIO Advisor logo" className="h-16 w-auto object-contain brightness-0 invert" />
+          <p className="mt-4 text-sm text-blue-100">Technology strategy for small business growth.</p>
+        </div>
+        <FooterColumn title="Quick Links" links={["Home", "Services", "Who We Help", "Insights", "About", "Contact"]} />
+        <FooterColumn title="Services" links={["Technology Roadmaps", "CRM & Lead Management", "AI & Automation", "Operations Improvement", "Security & Compliance", "Software Selection"]} />
+        <div>
+          <h4 className="font-extrabold">Let’s Connect</h4>
+          <div className="mt-4 space-y-2 text-sm text-blue-100">
+            <p>586.965.4758</p>
+            <p>hello@vcioadvisor.com</p>
+            <p>Serving businesses nationwide</p>
+          </div>
+        </div>
+      </div>
+      <div className="border-t border-white/10 px-6 py-5 text-center text-xs text-blue-100">
+        © 2025 vCIO Advisor. All rights reserved.
+      </div>
+    </footer>
+  );
+}
+
+function FooterColumn({ title, links }) {
+  return (
     <div>
-      <h1>Strategic IT leadership built around real business experience.</h1>
-
-      <p>
-        vCIO Advisory is built around hands-on experience helping businesses make better technology decisions. I work directly with business owners and leadership teams to bring clarity, structure, and direction to IT.
-      </p>
-
-      <p>
-        My focus is simple: help you modernize your technology, reduce risk, and use IT as a driver for growth — not just a support function.
-      </p>
-
-      <a href="mailto:Doug@vCIOAdvisor.com" class="btn">Schedule a Conversation</a>
+      <h4 className="font-extrabold">{title}</h4>
+      <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2 text-sm text-blue-100">
+        {links.map((link) => (
+          <a key={link} href="#" className="hover:text-white">{link}</a>
+        ))}
+      </div>
     </div>
-  </div>
+  );
+}
 
-  <!-- VALUE -->
-  <div class="section">
-    <h2>Helping SMBs modernize technology to drive business growth.</h2>
-
-    <p>
-      vCIO Advisory is a consulting firm focused on helping small and mid-sized businesses modernize their technology to support business development and long-term growth. We provide strategic guidance, practical solutions, and executive-level insight to turn IT from a cost center into a growth driver.
-    </p>
-  </div>
-
-  <!-- SERVICES -->
-  <div class="section">
-    <h2>What We Do</h2>
-
-    <div class="grid">
-      <div class="card">Fractional CIO Advisory</div>
-      <div class="card">IT Strategy & Roadmap Development</div>
-      <div class="card">Technology Modernization & AI</div>
-      <div class="card">Cybersecurity Risk Assessment</div>
-      <div class="card">Vendor Management</div>
+function SectionLabel({ label }) {
+  return (
+    <div className="mb-3 flex items-center justify-center gap-4 text-sm font-extrabold uppercase tracking-[0.2em] text-[#06285c]">
+      <span className="h-0.5 w-8 bg-[#ff8c1a]" />
+      {label}
+      <span className="h-0.5 w-8 bg-[#ff8c1a]" />
     </div>
-  </div>
-
-  <!-- CONTACT -->
-  <div class="section">
-    <h2>Get In Touch</h2>
-
-    <p>If you want technology to become a competitive advantage instead of a constant source of reaction, let’s talk.</p>
-
-    <p><strong>Doug@vCIOAdvisor.com</strong></p>
-  </div>
-
-</div>
-
-</body>
-</html>
+  );
+}
