@@ -314,14 +314,13 @@
 
     .contact-grid {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 40px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
       margin-top: 48px;
-      align-items: start;
+      align-items: stretch;
     }
 
-    .info-card,
-    .form-card {
+    .contact-card {
       background: #ffffff;
       border: 1px solid var(--border);
       border-radius: 24px;
@@ -329,120 +328,61 @@
       box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
     }
 
-    .info-card h3,
-    .form-card h3 {
-      margin: 0;
-      color: var(--blue-dark);
-      font-size: 28px;
-      line-height: 1.15;
-    }
-
-    .info-card p,
-    .form-card p {
-      color: var(--muted);
-      margin: 14px 0 0;
-    }
-
-    .contact-methods {
-      display: grid;
-      gap: 20px;
-      margin-top: 28px;
-    }
-
-    .method {
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 16px;
-      align-items: center;
-      padding: 18px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: #ffffff;
-    }
-
-    .method-icon {
-      width: 56px;
-      height: 56px;
+    .contact-icon {
+      width: 64px;
+      height: 64px;
       border: 2px solid var(--blue);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 26px;
+      font-size: 30px;
+      margin-bottom: 18px;
     }
 
-    .method h4 {
+    .contact-card h3 {
       margin: 0;
       color: var(--blue-dark);
-      font-size: 18px;
+      font-size: 24px;
+      line-height: 1.15;
     }
 
-    .method p,
-    .method a {
-      margin: 4px 0 0;
+    .contact-card p {
       color: var(--muted);
-      font-weight: 700;
+      margin: 12px 0 0;
     }
 
-    .form-note {
-      margin-top: 24px;
-      padding: 18px;
-      background: var(--blue-light);
-      border-left: 4px solid var(--blue);
-      border-radius: 12px;
-      color: var(--blue-dark);
-      font-weight: 700;
+    .contact-card a {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--blue-mid);
+      font-weight: 900;
     }
 
-    .simple-form {
-      display: grid;
-      gap: 16px;
-      margin-top: 28px;
-    }
-
-    label {
-      display: grid;
-      gap: 8px;
-      color: var(--blue-dark);
-      font-weight: 800;
-      font-size: 14px;
-    }
-
-    input,
-    textarea,
-    select {
-      width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 14px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 15px;
-      color: var(--text);
+    .direct-box {
+      margin-top: 48px;
       background: #ffffff;
-    }
-
-    textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    input:focus,
-    textarea:focus,
-    select:focus {
-      outline: 3px solid rgba(11, 116, 201, 0.18);
-      border-color: var(--blue);
-    }
-
-    .form-row {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 38px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
     }
 
-    .submit-note {
+    .direct-box h3 {
+      margin: 0;
+      color: var(--blue-dark);
+      font-size: 30px;
+      line-height: 1.15;
+    }
+
+    .direct-box p {
       color: var(--muted);
-      font-size: 14px;
-      margin-top: 10px;
+      margin: 12px 0 0;
+      font-size: 17px;
     }
 
     .expect-section {
@@ -474,6 +414,8 @@
       justify-content: center;
       font-size: 30px;
       margin-bottom: 18px;
+      color: var(--blue-dark);
+      font-weight: 900;
     }
 
     .expect-card h3 {
@@ -568,17 +510,31 @@
       .page-hero-grid,
       .contact-grid,
       .expect-grid,
+      .direct-box,
       .cta-box,
       .footer-grid {
         grid-template-columns: 1fr;
       }
 
-      .cta-box {
+      .cta-box,
+      .direct-box {
         text-align: center;
       }
 
-      .cta-box .btn {
+      .cta-box .btn,
+      .direct-box .btn {
         justify-self: center;
+      }
+
+      .contact-icon,
+      .expect-icon {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .contact-card,
+      .expect-card {
+        text-align: center;
       }
     }
 
@@ -603,9 +559,7 @@
         font-size: 42px;
       }
 
-      .hero-actions,
-      .form-row {
-        grid-template-columns: 1fr;
+      .hero-actions {
         flex-direction: column;
       }
 
@@ -613,8 +567,9 @@
         width: 100%;
       }
 
-      .info-card,
-      .form-card {
+      .contact-card,
+      .expect-card,
+      .direct-box {
         padding: 28px;
       }
 
@@ -662,7 +617,7 @@
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="mailto:Doug@vCIOAdvisor.com">Email Doug →</a>
-            <a class="btn btn-outline" href="#contact-form">Send a Message →</a>
+            <a class="btn btn-outline" href="tel:8565161668">Call 856-516-1668 →</a>
           </div>
         </div>
 
@@ -682,7 +637,7 @@
 
               <div class="contact-detail">
                 <span>📞</span>
-                <div>586.965.4758</div>
+                <div>856-516-1668</div>
               </div>
 
               <div class="contact-detail">
@@ -700,114 +655,52 @@
       </div>
     </section>
     
-    <section id="contact-form" class="contact-section">
+    <section class="contact-section">
       <div class="container">
         <div class="section-label">Get in Touch</div>
-        <h2 class="section-title">Tell us what you are trying to improve.</h2>
+        <h2 class="section-title">The easiest way to start is with a quick email or call.</h2>
         <p class="section-intro">
-          Whether you need help with a technology roadmap, CRM, AI, automation, security, software selection,
-          or operational improvement, this is the place to start.
+          Tell us a little about your business, what you are trying to improve, and where technology may be slowing you down.
         </p>
 
         <div class="contact-grid">
-          <div class="info-card">
-            <h3>Contact Information</h3>
+          <article class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <h3>Email Doug</h3>
             <p>
-              The fastest way to start is by emailing Doug directly. Include a short note about your business
-              and what challenge you are trying to solve.
+              Send a short note about your business and what challenge you are trying to solve.
             </p>
+            <a href="mailto:Doug@vCIOAdvisor.com">Doug@vCIOAdvisor.com</a>
+          </article>
 
-            <div class="contact-methods">
-              <div class="method">
-                <div class="method-icon">✉️</div>
-                <div>
-                  <h4>Email</h4>
-                  <a href="mailto:Doug@vCIOAdvisor.com">Doug@vCIOAdvisor.com</a>
-                </div>
-              </div>
+          <article class="contact-card">
+            <div class="contact-icon">📞</div>
+            <h3>Call Directly</h3>
+            <p>
+              Prefer a phone call? Reach out directly and we can discuss whether vCIO Advisor is the right fit.
+            </p>
+            <a href="tel:8565161668">856-516-1668</a>
+          </article>
 
-              <div class="method">
-                <div class="method-icon">📞</div>
-                <div>
-                  <h4>Phone</h4>
-                  <a href="tel:5869654758">586.965.4758</a>
-                </div>
-              </div>
+          <article class="contact-card">
+            <div class="contact-icon">🧭</div>
+            <h3>Service Area</h3>
+            <p>
+              vCIO Advisor works with small and mid-sized businesses locally and nationwide.
+            </p>
+            <a href="mailto:Doug@vCIOAdvisor.com">Schedule a Free Assessment</a>
+          </article>
+        </div>
 
-              <div class="method">
-                <div class="method-icon">🧭</div>
-                <div>
-                  <h4>Service Area</h4>
-                  <p>Serving businesses nationwide</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-note">
-              Prefer a simple email? Click the button below and send a quick note about what you need help with.
-              <br><br>
-              <a class="btn btn-primary" href="mailto:Doug@vCIOAdvisor.com">Email Doug →</a>
-            </div>
+        <div class="direct-box">
+          <div>
+            <h3>Ready to start the conversation?</h3>
+            <p>
+              Email Doug directly and include your name, company, and the main technology or operational challenge you are trying to solve.
+            </p>
           </div>
 
-          <div class="form-card">
-            <h3>Send a Message</h3>
-            <p>
-              This form opens an email draft with the information you enter. It does not require a backend or paid form service.
-            </p>
-
-            <form class="simple-form" action="mailto:Doug@vCIOAdvisor.com" method="post" enctype="text/plain">
-              <div class="form-row">
-                <label>
-                  Name
-                  <input type="text" name="Name" placeholder="Your name" required>
-                </label>
-
-                <label>
-                  Company
-                  <input type="text" name="Company" placeholder="Company name">
-                </label>
-              </div>
-
-              <div class="form-row">
-                <label>
-                  Email
-                  <input type="email" name="Email" placeholder="you@example.com" required>
-                </label>
-
-                <label>
-                  Phone
-                  <input type="tel" name="Phone" placeholder="Your phone number">
-                </label>
-              </div>
-
-              <label>
-                What do you need help with?
-                <select name="Service Interest">
-                  <option value="Technology Roadmap">Technology Roadmap</option>
-                  <option value="Fractional CIO Advisory">Fractional CIO Advisory</option>
-                  <option value="CRM & Lead Management">CRM & Lead Management</option>
-                  <option value="AI & Automation">AI & Automation</option>
-                  <option value="Operations Improvement">Operations Improvement</option>
-                  <option value="Software Selection">Software Selection</option>
-                  <option value="Security & Compliance">Security & Compliance</option>
-                  <option value="Not sure yet">Not sure yet</option>
-                </select>
-              </label>
-
-              <label>
-                Message
-                <textarea name="Message" placeholder="Briefly describe what is slowing your business down or what you are trying to improve." required></textarea>
-              </label>
-
-              <button class="btn btn-orange" type="submit">Send Message →</button>
-
-              <p class="submit-note">
-                Note: Because this is a free static website setup, submitting this form will open your email app.
-                Later, we can connect a free/low-cost form tool if you want a smoother form experience.
-              </p>
-            </form>
-          </div>
+          <a class="btn btn-orange" href="mailto:Doug@vCIOAdvisor.com">Schedule a Free Assessment →</a>
         </div>
       </div>
     </section>
@@ -893,7 +786,7 @@
 
       <div class="footer-col">
         <h4>Let’s Connect</h4>
-        <p>586.965.4758</p>
+        <p>856-516-1668</p>
         <p>Doug@vCIOAdvisor.com</p>
         <p>Serving businesses nationwide</p>
       </div>
